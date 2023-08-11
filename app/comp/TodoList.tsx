@@ -46,7 +46,7 @@ export const TodoList = async() => {
         {res.data.map((item)=>(
             
 
-            <div className='bg-gray-100 py-2 px-4 flex items-center gap-x-5 shadow rounded-lg my-3 justify-between'>
+            <div key={item.id} className='bg-gray-100 py-2 px-4 flex items-center gap-x-5 shadow rounded-lg my-3 justify-between'>
         
         <div className='flex gap-x-5'>
         <div className='h-3 w-3 bg-secondary self-center  rounded-full'></div>
