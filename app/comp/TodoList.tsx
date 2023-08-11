@@ -1,6 +1,8 @@
 import React from 'react'
 import { Todo } from '@/lib/drizzle'
 import DeleteTodo from './DeleteTodo';
+import axios from "axios"
+
 
 const  getData = async() => {
     const res = await fetch("http://127.0.0.1:3000/api/todo",
@@ -11,6 +13,8 @@ const  getData = async() => {
             "content-type": "application/json"
         }
     });
+
+    // const res = await axios.get("/api/todo");
 
     try {
         if(!res.ok)
@@ -32,7 +36,7 @@ export const TodoList = async() => {
   
     const res: {data:Todo[]} = await getData();
 
-    console.log("Fetched data:" + res.data);
+    console.log("Fetched data:" + res);
     
 
     return (
