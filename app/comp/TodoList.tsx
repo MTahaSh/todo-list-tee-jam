@@ -3,9 +3,9 @@ import { Todo } from '@/lib/drizzle'
 import DeleteTodo from './DeleteTodo';
 import axios from "axios"
 
-
+// http://127.0.0.1:3000
 const  getData = async() => {
-    const res = await fetch("http://127.0.0.1:3000/api/todo",
+    const res = await fetch("/api/todo",
     {
         method:"GET",
         cache:"no-store",
