@@ -1,11 +1,9 @@
 import React from 'react'
 import { Todo } from '@/lib/drizzle'
 import DeleteTodo from './DeleteTodo';
-import axios from "axios"
 
-// http://127.0.0.1:3000
 const  getData = async() => {
-    const res = await fetch("/api/todo",
+    const res = await fetch("http://127.0.0.1:3000/api/todo",
     {
         method:"GET",
         cache:"no-store",
@@ -13,8 +11,6 @@ const  getData = async() => {
             "content-type": "application/json"
         }
     });
-
-    // const res = await axios.get("/api/todo");
 
     try {
         if(!res.ok)
@@ -36,7 +32,7 @@ export const TodoList = async() => {
   
     const res: {data:Todo[]} = await getData();
 
-    console.log("Fetched data:" + res);
+    console.log("Fetched data:" + res.data);
     
 
     return (
@@ -46,7 +42,7 @@ export const TodoList = async() => {
         {res.data.map((item)=>(
             
 
-            <div key={item.id} className='bg-gray-100 py-2 px-4 flex items-center gap-x-5 shadow rounded-lg my-3 justify-between'>
+            <div className='bg-gray-100 py-2 px-4 flex items-center gap-x-5 shadow rounded-lg my-3 justify-between'>
         
         <div className='flex gap-x-5'>
         <div className='h-3 w-3 bg-secondary self-center  rounded-full'></div>
